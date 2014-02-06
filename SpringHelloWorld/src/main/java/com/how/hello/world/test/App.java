@@ -1,10 +1,17 @@
 package com.how.hello.world.test;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+
 public class App {
 
 	public static void main(String[] args) {
-		System.out.println("Hello Java");
 
+		ApplicationContext context= new FileSystemXmlApplicationContext("beans.xml");
+		
+		
+		Guitar guitar = (Guitar)context.getBean("guitar");
+		guitar.play();
 	}
 
 }
